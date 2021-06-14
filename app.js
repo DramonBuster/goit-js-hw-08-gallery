@@ -104,12 +104,12 @@ function openModal(event) {
   event.preventDefault();
   console.log(event.target.dataset.source);
   refs.lightbox.classList.add('is-open');
-  refs.lightbox.classList.remove('is-closed');
   refs.imgLightbox.src = event.target.dataset.source;
   refs.btnLightbox.addEventListener('click', closeModal);
 }
 
 function closeModal(event) {
   refs.lightbox.classList.remove('is-open');
-  refs.lightbox.classList.add('is-closed');
+  refs.btnLightbox.removeEventListener('click', closeModal);
+  refs.imgLightbox.src = '';
 }
